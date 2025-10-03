@@ -1,8 +1,203 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2761
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rosemary Flowers, LLC — Rose & Flower Boutique</title>
+  <meta name="description" content="Rosemary Flowers, LLC — Rose & flower boutique on West Blvd, Los Angeles. Bouquets, gifts, and custom arrangements with local delivery."/>
+  <style>
+    :root{
+      --primary:#FF6FAE;   /* Pink */
+      --accent:#1B7F3A;    /* Green */
+      --ink:#0b0b0b;
+      --muted:#5a6470;
+      --card:#ffffff;
+      --bg:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
 
-\f0\fs24 \cf0 HI}
+    /* Header */
+    header{background:var(--accent); color:#fff; position:sticky; top:0; z-index:10; box-shadow:0 6px 18px rgba(0,0,0,.08)}
+    .topbar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px}
+    .brand{font-weight:900; letter-spacing:.4px}
+    nav a{display:inline-block; padding:10px 14px; border-radius:12px; color:#eaffea; font-weight:700}
+    nav a:hover{background:rgba(255,255,255,.16)}
+    .cta-btn{background:var(--primary); color:#4a1f14; padding:10px 14px; border-radius:12px; font-weight:800}
+
+    /* Hero */
+    .hero-wrap{background:linear-gradient(180deg,#fff,#fff5f9); padding:42px 24px}
+    .hero-card{
+      background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:22px;
+      box-shadow:0 30px 60px rgba(0,0,0,.12); padding:28px;
+      display:grid; grid-template-columns:1.15fr .85fr; gap:22px; overflow:hidden;
+      transform:translateY(24px); opacity:0; animation:cardIn .9s ease-out .15s forwards;
+    }
+    @keyframes cardIn{to{transform:translateY(0);opacity:1}}
+    .hero-badge{display:inline-flex; align-items:center; gap:10px; background:#0e3a1d; color:var(--primary); padding:6px 12px; border-radius:999px; font-size:.9rem; font-weight:800}
+    .hero-title{font-size:clamp(26px,4vw,42px); line-height:1.15; margin:14px 0 10px; font-weight:900}
+    .hero-title .grad{background:linear-gradient(90deg,var(--primary),#ff9cc6); -webkit-background-clip:text; color:transparent}
+    .hero-sub{font-size:1.02rem; color:#2f3440}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .btn{border:2px solid var(--accent); color:#fff; background:var(--accent); padding:12px 18px; border-radius:14px; font-weight:800}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 8px 16px rgba(0,0,0,.15)}
+    .btn.secondary{background:var(--primary); color:#4a1f14; border-color:var(--primary)}
+    .hero-media{border-radius:18px; overflow:hidden; aspect-ratio:4/3; background:#fff1f7;
+      display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8px}
+    .hero-media img{object-fit:cover; width:100%; height:100%}
+
+    /* Sections */
+    section{padding:56px 24px}
+    section h2{font-size:clamp(22px,3vw,32px); margin:0 0 14px; font-weight:900}
+    .muted{color:var(--muted)}
+
+    /* Cards */
+    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px}
+    .card{border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:16px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.06);
+      transform:translateY(14px); opacity:0}
+    .card.reveal{animation:reveal .7s ease-out forwards}
+    @keyframes reveal{to{transform:translateY(0); opacity:1}}
+
+    /* Gallery */
+    .gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    .gallery img{border-radius:14px; aspect-ratio:4/3; object-fit:cover}
+
+    /* Contact */
+    .contact-box{background:var(--primary); color:#4a1f14; border-radius:18px; padding:20px; display:grid; gap:8px; border:1px solid rgba(0,0,0,.06)}
+    .contact-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+    .contact-actions a{display:inline-block; background:var(--accent); color:#fff; padding:10px 14px; border-radius:12px; font-weight:800}
+
+    footer{background:#0e3a1d; color:#ffd8e8; padding:18px; text-align:center; font-weight:700}
+
+    @media (max-width:820px){
+      .hero-card{grid-template-columns:1fr; padding:20px}
+      .gallery{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="topbar container">
+      <div class="brand">Rosemary Flowers, LLC</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#products">Bouquets</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact" class="cta-btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero-wrap">
+    <div class="container">
+      <div class="hero-card">
+        <div>
+          <span class="hero-badge">Rose & Flower Boutique</span>
+          <h1 class="hero-title">Say it with blooms. <span class="grad">Every day, any occasion.</span></h1>
+          <p class="hero-sub">Modern bouquets, romantic roses, and custom arrangements. Local delivery from our West Blvd studio in Los Angeles.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#products">Shop Bouquets</a>
+            <a class="btn secondary" href="#contact">Order Now</a>
+          </div>
+          <p class="muted" style="margin-top:10px;">
+            West Blvd, Los Angeles, CA 90016 • +1 734 600 7571 • service@plarevo.shop
+          </p>
+        </div>
+        <div class="hero-media">
+          <img src="https://ru-static.z-dn.net/files/d66/0a56b98931c7e6ba46c25d2111be1fd0.jpg" alt="Pink roses closeup">
+          <img src="https://i.pinimg.com/originals/56/cc/c6/56ccc687a2b7259ff89e76c39ef00908.jpg" alt="Florist arranging bouquet">
+          <img src="https://i.pinimg.com/originals/09/ac/10/09ac1087a82d6a240549ec3d4f79edd2.jpg" alt="Gift bouquet">
+          <img src="https://rtsosh-tursunzade.tj/upload/iblock/543/q4rr1xt4o6lzo214jqw9ph0rfctg3kg0/297d46ff-d4dd-44cf-8eda-a2072b23389d.jfif" alt="Shop flowers">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section id="about" class="container">
+    <h2>About Us</h2>
+    <p class="muted">
+      At Rosemary Flowers, we create fresh, elegant arrangements with a focus on premium roses and seasonal stems.
+      From birthdays to weddings—or just to brighten a room—our florists tailor designs to your message and budget.
+    </p>
+    <div class="cards" style="margin-top:12px">
+      <article class="card reveal"><strong>Signature Roses:</strong> Long-stemmed, color-matched, and lush textures.</article>
+      <article class="card reveal"><strong>Custom Work:</strong> Bespoke palettes and sizes for any occasion.</article>
+      <article class="card reveal"><strong>Same-Day Delivery:</strong> West & Central LA neighborhoods.</article>
+      <article class="card reveal"><strong>Care Tips:</strong> Guidance to help blooms last longer.</article>
+    </div>
+  </section>
+
+  <!-- Bouquets / Products -->
+  <section id="products" class="container">
+    <h2>Bouquets</h2>
+    <div class="cards">
+      <article class="card reveal">
+        <h3>Classic Dozen</h3>
+        <p>12 premium roses with seasonal greenery. Pick your colorway.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Grand Romance</h3>
+        <p>24 hand-tied roses with eucalyptus and satin wrap.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Pastel Garden</h3>
+        <p>Soft pinks and creams with airy filler for a dreamy look.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Custom Arrangement</h3>
+        <p>Share the occasion and budget—we’ll design it to match.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="container">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://ru-static.z-dn.net/files/d66/0a56b98931c7e6ba46c25d2111be1fd0.jpg" alt="Pink roses">
+      <img src="https://i.pinimg.com/originals/56/cc/c6/56ccc687a2b7259ff89e76c39ef00908.jpg" alt="Florist at work">
+      <img src="https://i.pinimg.com/originals/09/ac/10/09ac1087a82d6a240549ec3d4f79edd2.jpg" alt="Bouquet on table">
+      <img src="https://rtsosh-tursunzade.tj/upload/iblock/543/q4rr1xt4o6lzo214jqw9ph0rfctg3kg0/297d46ff-d4dd-44cf-8eda-a2072b23389d.jfif" alt="Flower shop display">
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container">
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <div><strong>Company:</strong> Rosemary Flowers, LLC</div>
+      <div><strong>Domain:</strong> Rose & Flower Boutique</div>
+      <div><strong>Address:</strong> West Blvd, Los Angeles, CA 90016-3672, United States</div>
+      <div><strong>Phone:</strong> +1 734 600 7571</div>
+      <div><strong>Email:</strong> service@plarevo.shop</div>
+      <div class="contact-actions">
+        <a href="mailto:service@plarevo.shop?subject=Order%20Inquiry%20-%20Rosemary%20Flowers" target="_blank" rel="noopener">Email Us</a>
+        <a href="tel:+17346007571">Call Now</a>
+        <a href="https://wa.me/17346007571" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=West+Blvd,+Los+Angeles,+CA+90016" target="_blank" rel="noopener">Open Map</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Rosemary Flowers, LLC — All rights reserved
+  </footer>
+
+  <script>
+    // Reveal-on-scroll for cards
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('reveal'); observer.unobserve(e.target); }
+      })
+    }, {threshold:.15});
+    document.querySelectorAll('.card').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
